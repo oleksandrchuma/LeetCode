@@ -21,16 +21,16 @@ class Solution:
                 res = max(max(counter.values())+1, res)
         print(lines)
         return res
-    def getLine(self, p1, p2):        
+    def getLine(self, p1, p2) -> tuple[Fraction, Fraction, Fraction]:        
         kx = p2[1]-p1[1]
         ky = p1[0]-p2[0]
         c = p1[0]*(p1[1]-p2[1])+p1[1]*(p2[0]-p1[0])
         if c != 0: 
-            return (Fraction(kx, c), Fraction(ky, c), 1)
+            return (Fraction(kx, c), Fraction(ky, c), Fraction(1))
         elif ky != 0: 
-            return (Fraction(kx, ky), 1, 0)
+            return (Fraction(kx, ky), Fraction(1), Fraction(0))
         else: 
-            return (0, 0, 0)
+            return (Fraction(0), Fraction(0), Fraction(0))
 
 start_time = time.time()
 app = Solution()
