@@ -13,7 +13,7 @@ class Solution:
             k -= x[i][1]
             i += 1
         return len(x) - i
-    
+        
 start_time = time.time()
 app = Solution()
 root = app.findLeastNumOfUniqueInts([4,3,1,1,3,3,2], 3)
