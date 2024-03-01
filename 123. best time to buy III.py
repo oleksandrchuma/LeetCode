@@ -113,10 +113,39 @@ class Solution:
             result.append(curr)
                     
         return result
+    def matrix(self, prices):
+        if len(prices) == 0:
+            return []
+        n = len(prices)//2
+        res = [[0 for _ in range(n)] for _ in range(n)]
+        for i in range(n):
+            for j in range(i, n):
+                low = prices[i*2]
+                high = prices[j*2+1]
+                res[i][j] = high-low
+        return res
+    
+    def calc(self, matrix, k):
+        n = len(matrix)
+        res = [[0 for _ in range(n+1)] for _ in range(k+1)]
+        for i in range(1, k+1):
+            m = 0
+            for j in range(1, n+1):
+                for d in range(0, j):
+                    m = max(m, matrix[n-j][n-j+d]+res[i-1][j-d-1])
+                res[i][j] = m
+            print(res[i])
+        print(res)
 start_time = time.time()
 app = Solution()
 
-print(app.maxProfit([3,3,5,0,0,3,1,4]))
+#print(app.maxProfit([3,3,5,0,0,3,1,4]))
+simp = app.simplify([3,3,5,0,0,3,1,4,0,5,1,8])
+print(simp)
+matrix = app.matrix(simp)
+print(matrix)
+app.calc(matrix, 3)
+
 end_time = time.time()
 execution_time = end_time - start_time
 print(f"Execution time: {execution_time} seconds")
