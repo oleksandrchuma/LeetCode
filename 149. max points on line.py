@@ -13,7 +13,7 @@ class Solution:
         lines = [[(math.inf,math.inf,math.inf) for _ in points] for _ in points]
         for i1 in range(len(points)):
             for i2 in range(i1):
-                lines[i1][i2] = self.getLine(points[i1], points[i2])
+                lines[i1][i2] = self.getLine(points[i1], points[i2]) # type: ignore
         res = 2
         for lineRow in lines:
             counter = Counter([line for line in lineRow if line[0] != math.inf or line[1] != math.inf or line[2] != math.inf])
