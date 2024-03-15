@@ -8,17 +8,16 @@ import heapq
 from collections import Counter
 
 class Solution:
-    def isHappy(self, n: int) -> bool:
-        s = set()
-        while n not in s:
-            s.add(n)
-            n = sum([int(c)*int(c) for c in str(n)])
-        return n == 1
-
+    def reverseBits(self, n: int) -> int:
+        res = 0
+        for i in range(32):
+            res <<= 1
+            res += n%2
+            n >>= 1
+        return res    
 start_time = time.time()
 app = Solution()
-root = app.isHappy(2)
-
+root = app.reverseBits(43261596)
 #root = app.calculateMinimumHP([[0]])
 print(root)
 end_time = time.time()
