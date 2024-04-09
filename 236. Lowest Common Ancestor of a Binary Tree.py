@@ -40,7 +40,7 @@ class Solution:
         return TreeNode(-1)
     def build(self, nodes: List[Optional[int]]) -> TreeNode:    
         if (len(nodes) == 0 or nodes[0] is None):
-            return None
+            return TreeNode(0)
         root = TreeNode(nodes[0])
         queue = []
         queue.append(root)
