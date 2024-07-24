@@ -29,10 +29,9 @@ def updatebit(BITTree , n , i ,v):
     print(f"updated {i} to {v}")
     # Traverse all ancestors and add 'val' 
     while i <= n: 
-  
+        print(bin(i))    
         # Add 'val' to current node of BI Tree 
         BITTree[i] += v 
-  
         # Update index to that of parent in update View 
         i += i & (-i) 
     
